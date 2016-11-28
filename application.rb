@@ -70,21 +70,21 @@ class Mortgage
     
     # Calculate monthly payments
     def calculate_monthly_payment
+        # Calculations with class instance variables
         @monthly_rate = (@interest_rate / 100 / 12)
         @total_payments = @mortgage_period * 12
         @monthly_payment = ((@monthly_rate/(1-(1 + @monthly_rate)**(-1 * @total_payments)))) * (@mortgage_amount - @down_payment)
-        formatted_payment = format("$%0.2f", @monthly_payment) 
+        
+        formatted_payment = format("$%0.2f", @monthly_payment)
+        
+        # Display monthly mortgage payments
         puts "You monthly payment will be #{formatted_payment}."
+        
     end
-    
-    # Display monthly mortgage payments
-    #puts "Your monthly payments will be #{monthly_payment}"
-
-
-
-
 end
 
+
+# Start Mortgage Calculation
 search = Mortgage.new
 search.get_info
 search.confirmation
